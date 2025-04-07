@@ -13,13 +13,16 @@ int binary_tree_is_root(const binary_tree_t *node)
 {
 
 	/* It is the only node in the tree with no parent*/
-	/* Every other node in the tree is a child, directly or indirectly, of the root*/
+	/**
+	 *  Every other node in the tree is a child,
+	 * directly or indirectly, of the root
+	 */
 
 	if (node == NULL)
 		return (0);
 
 	if (node->parent == NULL)
-		return(1);
+		return (1);
 
-	return(0);
+	return (0);
 }
