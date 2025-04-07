@@ -14,7 +14,7 @@ size_t binary_tree_depth(const binary_tree_t *tree)
 	/*The number of edges from the node up to the root of the tree.*/
 	size_t depth;
 
-	if (tree == NULL)
+	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
 		return (0);
 
 	while (tree->parent != NULL)
