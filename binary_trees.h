@@ -25,6 +25,14 @@ typedef struct binary_tree_s binary_tree_t;
 void binary_tree_print(const binary_tree_t *);
 
 /**
+ * binary_tree_depth -  function that measures the depth of a node in a binary tree
+ * @tree: pointer to the node to measure the depth
+ *
+ * Return: 1 if node is a root, otherwise 0
+ */
+size_t binary_tree_depth(const binary_tree_t *tree);
+
+/**
  * binary_tree_height - function that measures the height of a binary tree
  * @tree: pointer to the root node of the tree to measure the height
  *
