@@ -22,6 +22,8 @@ struct binary_tree_s
 
 typedef struct binary_tree_s binary_tree_t;
 
+void binary_tree_print(const binary_tree_t *);
+
 /**
  * binary_tree_insert_right - function that inserts a node as the right-child of another node
  * @parent: pointer to the node to insert the right-child in
