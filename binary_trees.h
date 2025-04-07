@@ -25,6 +25,16 @@ typedef struct binary_tree_s binary_tree_t;
 void binary_tree_print(const binary_tree_t *);
 
 /**
+ * binary_tree_preorder -  function that goes through a binary
+ * tree using pre-order traversal
+ * @tree: a pointer to the root node of the tree to traverse
+ * @func:  a pointer to a function to call for each node
+ *
+ * Return: 1 if node is a root, otherwise 0
+ */
+void binary_tree_preorder(const binary_tree_t *tree, void (*func)(int));
+
+/**
  * binary_tree_is_root -  function that checks if a node is a leaf
  * @node: pointer to the node to check
  *
