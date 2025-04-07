@@ -25,6 +25,14 @@ typedef struct binary_tree_s binary_tree_t;
 void binary_tree_print(const binary_tree_t *);
 
 /**
+ * binary_tree_delete - function that deletes an entire binary tree
+ * @tree: pointer to the root node of the tree to delete
+ *
+ * return: pointer to the created node, or NULL on failure or if parent is NULL
+ */
+void binary_tree_delete(binary_tree_t *tree);
+
+/**
  * binary_tree_insert_right - function that inserts a node as the right-child of another node
  * @parent: pointer to the node to insert the right-child in
  * @value:  value to store in the new node
