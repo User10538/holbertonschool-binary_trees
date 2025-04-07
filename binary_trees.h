@@ -25,10 +25,18 @@ typedef struct binary_tree_s binary_tree_t;
 void binary_tree_print(const binary_tree_t *);
 
 /**
+ * binary_tree_is_leaf -  function that checks if a node is a leaf
+ * @node: pointer to the node to check
+ *
+ * Return: 1 if node is a leaf, otherwise 0
+ */
+int binary_tree_is_leaf(const binary_tree_t *node);
+
+/**
  * binary_tree_delete - function that deletes an entire binary tree
  * @tree: pointer to the root node of the tree to delete
  *
- * return: pointer to the created node, or NULL on failure or if parent is NULL
+ * Return: pointer to the created node, or NULL on failure or if parent is NULL
  */
 void binary_tree_delete(binary_tree_t *tree);
 
