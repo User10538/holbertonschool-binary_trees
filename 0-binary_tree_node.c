@@ -11,7 +11,7 @@
  *
  * Return: a pointer to the new node, or NULL on failure
  */
- 
+
 binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 {
 	/*Allocate memory for new nodes*/
@@ -21,10 +21,10 @@ binary_tree_t *binary_tree_node(binary_tree_t *parent, int value)
 		return (NULL);
 
 	/*initialise the node with given value*/
-	new_nodes -> n = value;
-	new_nodes -> parent = parent;
-	new_nodes -> left = NULL;
-	new_nodes -> right = NULL;
+	new_nodes->n = value;
+	new_nodes->parent = parent;
+	new_nodes->left = NULL;
+	new_nodes->right = NULL;
 
 	return (new_nodes);
 }
