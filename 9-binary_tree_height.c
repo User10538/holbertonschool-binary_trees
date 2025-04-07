@@ -14,12 +14,16 @@ size_t binary_tree_height(const binary_tree_t *tree)
 	/*height of left and right*/
 	size_t left_height, right_height;
 
-	if (tree == NULL)
+	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
 		return (0);
 
 	left_height = binary_tree_height(tree->left);
 	right_height = binary_tree_height(tree->right);
 
 	/* calculate the max height, compare left and right to find the max*/
-	return (1 + (left_height > right_height ? left_height : right_height));
+	if (left_height > right_height)
+		/*add 1 to include the current node in the cal*/
+		return (1 + left_height);
+	else
+		return (1 + right_height);
 }
