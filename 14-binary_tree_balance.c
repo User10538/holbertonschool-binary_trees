@@ -22,7 +22,7 @@ int binary_tree_balance(const binary_tree_t *tree)
 
 	if (tree->left)
 	{
-		left_height  = 1 + binary_tree_balance(left->right);
+		left_height  = 1 + binary_tree_balance(tree->right);
 	}
 	if (tree->right)
 	{
