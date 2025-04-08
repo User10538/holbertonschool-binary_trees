@@ -28,7 +28,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 
 	/* If the node is a leaf, it should be at the correct depth */
 	if (tree->left == NULL && tree->right == NULL)
-		return (depth == 1);
+		return (1);
 
 	/* If the node has one child, it's not perfect */
 	if (tree->left == NULL || tree->right == NULL)
