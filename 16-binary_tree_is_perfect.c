@@ -10,8 +10,9 @@
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t depth, level = 0;
+	size_t depth = 0;
 	const binary_tree_t *temp;
+	int left_perfect, right_perfect;
 
 	if (tree == NULL)
 		return (0);
@@ -19,7 +20,7 @@ int binary_tree_is_perfect(const binary_tree_t *tree)
 	/* Find the depth of the leftmost leaf node */
 	temp = tree;
 
-	while (temp != NULL)
+	while (temp)
 	{
 		depth++;
 		temp = temp->left;
