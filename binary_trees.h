@@ -25,6 +25,14 @@ typedef struct binary_tree_s binary_tree_t;
 void binary_tree_print(const binary_tree_t *);
 
 /**
+ * *binary_tree_uncle - function that finds the uncle of a node
+ * @node: pointer to the node to find the uncle
+ *
+ * Return: no sibling, return NULL
+ */
+binary_tree_t *binary_tree_uncle(binary_tree_t *node);
+
+/**
  * *binary_tree_sibling - function that finds the sibling of a node
  * @node: pointer to the node to find the sibling
  *
