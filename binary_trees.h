@@ -25,6 +25,14 @@ typedef struct binary_tree_s binary_tree_t;
 void binary_tree_print(const binary_tree_t *);
 
 /**
+ * binary_tree_balance - function that measures the balance factor of a binary tree
+ * @tree:  pointer to the root node of the tree to measure the balance factor
+ *
+ * Return: 1 if node is a root, otherwise 0
+ */
+int binary_tree_balance(const binary_tree_t *tree);
+
+/**
  * binary_tree_nodes - function that counts the nodes with at least 1 child in a binary tree
  * @tree: pointer to the root node of the tree to count the number of nodes
  *
