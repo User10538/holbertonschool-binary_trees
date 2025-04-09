@@ -1,42 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "binary_trees.h"
 
 /**
- * binary_tree_is_perfect - Checks if a binary tree is perfect
- * @tree: Pointer to the root node
+ * *binary_tree_sibling - function that finds the sibling of a node
+ * @node: pointer to the node to find the sibling
  *
- * Return: 1 if perfect, 0 otherwise
+ * Return: no sibling, return NULL
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-    const binary_tree_t *temp = tree;
-    int d = 0;
+    const binary_tree_t *temp;
+    int depth = 0, level = 0;
+    const binary_tree_t *stack[1024];
+    int top = -1;
+    const binary_tree_t *node;
+    int levels[1024];
 
     if (tree == NULL)
         return (0);
 
-    /* Find depth of the leftmost leaf */
+    /* Calculate depth (leftmost path) */
+    temp = tree;
     while (temp)
     {
-        d++;
+        depth++;
         temp = temp->left;
     }
 
-    /* Inline helper function using a lambda-style static definition */
-    int is_perfect(const binary_tree_t *node, int depth, int level)
+    /* Iterative DFS to check perfectness */
+    stack[++top] = tree;
+    levels[top] = 0;
+
+    while (top >= 0)
     {
-        if (node == NULL)
-            return (1);
+        node = stack[top];
+        level = levels[top--];
 
         if (!node->left && !node->right)
-            return (depth == level + 1);
-
-        if (!node->left || !node->right)
+        {
+            if (level + 1 != depth)
+                return (0);
+        }
+        else if (!node->left || !node->right)
+        {
             return (0);
+        }
+        else
+        {
+            stack[++top] = node->right;
+            levels[top] = level + 1;
 
-        return (is_perfect(node->left, depth, level + 1) &&
-                is_perfect(node->right, depth, level + 1));
+            stack[++top] = node->left;
+            levels[top] = level + 1;
+        }
     }
 
-    return (is_perfect(tree, d, 0));
+    return (1);
 }
 
