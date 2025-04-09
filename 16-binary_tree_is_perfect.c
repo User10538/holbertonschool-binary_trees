@@ -1,42 +1,42 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
 #include "binary_trees.h"
+
 /**
- * binary_tree_is_perfect - function that checks if a binary tree is perfect
- * @tree: pointer to the root node of the tree to check
+ * binary_tree_is_perfect - Checks if a binary tree is perfect
+ * @tree: Pointer to the root node
  *
- * Return: 1 if node is a root, otherwise 0
+ * Return: 1 if perfect, 0 otherwise
  */
 int binary_tree_is_perfect(const binary_tree_t *tree)
 {
-	size_t depth = 0;
-	const binary_tree_t *temp;
-	int left_perfect, right_perfect;
+    const binary_tree_t *temp = tree;
+    int d = 0;
 
-	if (tree == NULL)
-		return (0);
+    if (tree == NULL)
+        return (0);
 
-	/* Find the depth of the leftmost leaf node */
-	temp = tree;
+    /* Find depth of the leftmost leaf */
+    while (temp)
+    {
+        d++;
+        temp = temp->left;
+    }
 
-	while (temp)
-	{
-		depth++;
-		temp = temp->left;
-	}
+    /* Inline helper function using a lambda-style static definition */
+    int is_perfect(const binary_tree_t *node, int depth, int level)
+    {
+        if (node == NULL)
+            return (1);
 
-	/* If the node is a leaf, it should be at the correct depth */
-	if (tree->left == NULL && tree->right == NULL)
-		return (1);
+        if (!node->left && !node->right)
+            return (depth == level + 1);
 
-	/* If the node has one child, it's not perfect */
-	if (tree->left == NULL || tree->right == NULL)
-		return (0);
-	
-	/* Recursively check if both subtrees are perfect */
-	left_perfect = binary_tree_is_perfect(tree->left);
-	right_perfect = binary_tree_is_perfect(tree->right);
+        if (!node->left || !node->right)
+            return (0);
 
-	return (left_perfect && right_perfect);
+        return (is_perfect(node->left, depth, level + 1) &&
+                is_perfect(node->right, depth, level + 1));
+    }
+
+    return (is_perfect(tree, d, 0));
 }
+
